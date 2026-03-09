@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiting - Mesa Ridge Grizzlies Football</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5d1b7a;
+            --accent: #b0b0b0;
+            --light: #f5f5f5;
+            --text: #222;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--primary);
+            padding: 1.5rem 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: bold;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #3d1560 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Recruiting Grid */
+        .recruiting-section {
+            padding: 2rem 0;
+        }
+
+        .recruiting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .recruit-card {
+            background: var(--light);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .recruit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .recruit-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 1.5rem;
+        }
+
+        .recruit-name {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .recruit-position {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .recruit-body {
+            padding: 1.5rem;
+        }
+
+        .measurables {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .measurable-item {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 3px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .measurable-label {
+            font-size: 0.8rem;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .measurable-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .hudl-link {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .hudl-link:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #fff;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(176, 176, 176, 0.2);
+            padding-top: 2rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .recruiting-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="mesa-ridge-logo.png" alt="Mesa Ridge Grizzlies Logo">
+                <span>Grizzlies</span>
+            </div>
+            <ul>
+                <li><a href="football-team-website.html#schedule">Schedule</a></li>
+                <li><a href="football-team-website.html#roster">Team</a></li>
+                <li><a href="full-roster.html">Full Roster</a></li>
+                <li><a href="football-team-website.html#news">News</a></li>
+                <li><a href="football-team-website.html#parents">Parents</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Recruiting</h1>
+        <p>Mesa Ridge Grizzlies Football - 2026 Roster Highlights</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <a href="football-team-website.html" class="back-button">← Back to Main</a>
+
+        <section class="recruiting-section">
+            <div class="recruiting-grid">
+                <div class="recruit-card">
+                    <div class="recruit-header">
+                        <div class="recruit-name">Amari Mcbroom</div>
+                        <div class="recruit-position">#12 • ATH</div>
+                    </div>
+                    <div class="recruit-body">
+                        <div class="measurables">
+                            <div class="measurable-item">
+                                <div class="measurable-label">Height</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Weight</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">40-Time</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Vertical</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                        </div>
+                        <a href="https://www.hudl.com" class="hudl-link" target="_blank">View Hudl Highlights</a>
+                    </div>
+                </div>
+
+                <div class="recruit-card">
+                    <div class="recruit-header">
+                        <div class="recruit-name">Chris Busby</div>
+                        <div class="recruit-position">#20 • RB</div>
+                    </div>
+                    <div class="recruit-body">
+                        <div class="measurables">
+                            <div class="measurable-item">
+                                <div class="measurable-label">Height</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Weight</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">40-Time</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Vertical</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                        </div>
+                        <a href="https://www.hudl.com" class="hudl-link" target="_blank">View Hudl Highlights</a>
+                    </div>
+                </div>
+
+                <div class="recruit-card">
+                    <div class="recruit-header">
+                        <div class="recruit-name">Matthew Lumpkin</div>
+                        <div class="recruit-position">#14 • WR</div>
+                    </div>
+                    <div class="recruit-body">
+                        <div class="measurables">
+                            <div class="measurable-item">
+                                <div class="measurable-label">Height</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Weight</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">40-Time</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Vertical</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                        </div>
+                        <a href="https://www.hudl.com" class="hudl-link" target="_blank">View Hudl Highlights</a>
+                    </div>
+                </div>
+
+                <div class="recruit-card">
+                    <div class="recruit-header">
+                        <div class="recruit-name">Sean Calip</div>
+                        <div class="recruit-position">#2 • CB</div>
+                    </div>
+                    <div class="recruit-body">
+                        <div class="measurables">
+                            <div class="measurable-item">
+                                <div class="measurable-label">Height</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Weight</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">40-Time</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Vertical</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                        </div>
+                        <a href="https://www.hudl.com" class="hudl-link" target="_blank">View Hudl Highlights</a>
+                    </div>
+                </div>
+
+                <div class="recruit-card">
+                    <div class="recruit-header">
+                        <div class="recruit-name">Orion Wall</div>
+                        <div class="recruit-position">#77 • OL</div>
+                    </div>
+                    <div class="recruit-body">
+                        <div class="measurables">
+                            <div class="measurable-item">
+                                <div class="measurable-label">Height</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Weight</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">40-Time</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Vertical</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                        </div>
+                        <a href="https://www.hudl.com" class="hudl-link" target="_blank">View Hudl Highlights</a>
+                    </div>
+                </div>
+
+                <div class="recruit-card">
+                    <div class="recruit-header">
+                        <div class="recruit-name">Ryan Regidor</div>
+                        <div class="recruit-position">#8 • WR</div>
+                    </div>
+                    <div class="recruit-body">
+                        <div class="measurables">
+                            <div class="measurable-item">
+                                <div class="measurable-label">Height</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Weight</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">40-Time</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                            <div class="measurable-item">
+                                <div class="measurable-label">Vertical</div>
+                                <div class="measurable-value">TBD</div>
+                            </div>
+                        </div>
+                        <a href="https://www.hudl.com" class="hudl-link" target="_blank">View Hudl Highlights</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mesa Ridge Grizzlies Football. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
